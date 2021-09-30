@@ -11,13 +11,13 @@ class Game {
     }
 
     addEventListeners () {
-
         document.addEventListener("keydown", (event) => {
-
             if (event.key === "ArrowLeft") {
                 this.car.moveLeft();
+                this.car.showCar();
             } else if (event.key === "ArrowRight") {
                 this.car.moveRight();
+                this.car.showCar();
             }
         });
     }
@@ -29,6 +29,7 @@ class Car {
         this.y = 100;
         this.width = 10;
         this.height = 20;
+        this.domElm = null;
     }
 
     moveLeft () {
@@ -40,24 +41,17 @@ class Car {
     }
 
     createCar () {
-        //create element and add CSS
-        const divTag = document.createElement("div");
-        divTag.className = "car";
-
+        this.domElm = document.createElement("div");
+        this.domElm.className = "car";
         const gameElm = document.getElementById("game");
-        gameElm.appendChild(divTag);
+        gameElm.appendChild(this.domElm);
     }
 
     showCar () {
-
-        divTag.style.width = this.width + "%";
-        divTag.style.height = this.height + "%";
-        divTag.style.left = this.x + "%";
-        divTag.style.top = this.y + "%";
-
-
-        //append to DOM
-        divTag.innerHTML = "This is a cool car"
-        const gameElm = document.getElementById("game");
-        gameElm.appendChild(divTag);
+        this.domElm.style.width = this.width + "%";
+        this.domElm.style.height = this.height + "%";
+        this.domElm.style.left = this.x + "%";
+        this.domElm.style.top = this.y + "%";
     }
+
+}
