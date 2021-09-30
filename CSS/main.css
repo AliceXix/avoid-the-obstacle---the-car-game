@@ -1,0 +1,18 @@
+body {
+    background-color: aliceblue;
+    text-align: center;
+}
+
+#game {
+    position: relative;
+    background-color: #bbb;
+    outline: auto;
+    width: 60vw;
+    height: 90vh;
+    margin: 5vh auto;
+}
+
+.car {
+    position: absolute;
+    background-color: orange;
+}
