@@ -1,0 +1,55 @@
+class Game {
+    constructor () {
+        this.currentTime = 0;
+        this.car = null;
+    }
+
+    startGame () {
+        this.car = new Car();
+        this.car.createCar();
+        this.addEventListeners();
+    }
+
+    addEventListeners () {
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+                this.car.moveLeft();
+            } else if (event.key === "ArrowRight") {
+                this.car.moveRight();
+            }
+        });
+    }
+}
+
+class Car {
+    constructor () {
+        this.x = 50;
+        this.y = 100;
+        this.width = 10;
+        this.height = 20;
+    }
+
+    moveLeft () {
+        this.x--;
+    }
+
+    moveRight () {
+        this.x++;
+    }
+
+    createCar () {
+        //create element and add CSS
+        const divTag = document.createElement("div");
+        divTag.className = "car";
+        const gameElm = document.getElementById("game");
+        gameElm.appendChild(divTag);
+    }
+
+    showCar () {
+        divTag.style.width = this.width + "%";
+        divTag.style.height = this.height + "%";
+        divTag.style.left = this.x + "%";
+        divTag.style.top = this.y + "%";
+    }
+
+}
