@@ -7,8 +7,18 @@ class Game {
     startGame () {
         this.car = new Car();
         this.car.createCar();
+        this.addEventListeners();
     }
-    
+
+    addEventListeners () {
+        document.addEventListener("keydown", function(event){
+            if (event.key === "ArrowLeft") {
+                this.car.moveLeft();
+            } else if (event.key === "ArrowRight") {
+                this.car.moveRight();
+            }
+        });
+    }
 }
 
 class Car {
