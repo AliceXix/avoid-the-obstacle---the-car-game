@@ -110,9 +110,11 @@ class Car extends Thing {
 class Obstacle extends Thing {
     constructor(){
         super();
-        
-        this.width = Math.floor(Math.random()*(30-10+1) +10);;
-        this.height = 5;
+
+        const sizeFactor = Math.floor(Math.random()*(3-1+1) + 1);
+
+        this.width = 10 * sizeFactor;
+        this.height = 3 * sizeFactor;
 
         this.x = Math.floor(Math.random()*(100-this.width+1));
         this.y = 0;
