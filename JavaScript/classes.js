@@ -40,7 +40,7 @@ class Game {
                 newObstacle.create();
                 this.obstacleArr.push(newObstacle);
             }
-        }, 400);
+        }, 200);
 
     }
 
@@ -55,6 +55,7 @@ class Game {
             }
         });
     }
+
 }
 
 
@@ -65,20 +66,24 @@ class Thing {
         this.domElm = null;
         this.gameElm = document.getElementById("game");
     }
+
     create(){
         this.domElm = document.createElement("div");
         this.domElm.className = this.className;
         this.gameElm.appendChild(this.domElm);
     }
+
     remove(){
         this.gameElm.removeChild(this.domElm);
     }
+
     draw(){
         this.domElm.style.width = this.width + "%";
         this.domElm.style.height = this.height + "%";
         this.domElm.style.left = this.x + "%";
         this.domElm.style.top = this.y + "%";
     }
+
 }
 
 class Car extends Thing {
@@ -90,12 +95,15 @@ class Car extends Thing {
         this.height = 20;
         this.className = "car";
     }
+
     moveLeft(){
         this.x--;
     }
+
     moveRight(){
         this.x++;
     }
+
 }
 
 
@@ -103,7 +111,7 @@ class Obstacle extends Thing {
     constructor(){
         super();
         
-        this.width = 20;
+        this.width = Math.floor(Math.random()*(30-10+1) +10);;
         this.height = 5;
 
         this.x = Math.floor(Math.random()*(100-this.width+1));
@@ -111,6 +119,7 @@ class Obstacle extends Thing {
 
         this.className = "obstacle";
     }
+
     moveDown(){
         this.y = this.y + 5 ;
     }
